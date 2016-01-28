@@ -4,14 +4,17 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
 //    這邊設定你們板子的IP
-    private static final String SERVER_IP = "192.168.20.139";
+    private static final String SERVER_IP = "192.168.29.132";
 //    這邊設定你們板子的Port
     private static final int SERVER_PORT = 8080;
 
@@ -36,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
     public void Commnad3(){
         send(Command3);
     }
+    @OnClick(R.id.button4)
+    public void setPortIP(){
+        UDPSender.setIpAndPort(et_IP.getText().toString(),Integer.valueOf(et_Port.getText().toString()));
+    }
+    @Bind(R.id.editText)EditText et_IP;
+    @Bind(R.id.editText2)EditText et_Port;
 
 
     private Handler uiHandler = new Handler() {

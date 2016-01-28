@@ -33,12 +33,17 @@ public class UDPSender {
         nonUiHandler = new SenderHandler(mHandlerThread.getLooper());
         nonUiHandler.sendMessage(nonUiHandler.obtainMessage(nonUiHandler.WHAT_CREATE_SOCKET));
     }
+    public void setIpAndPort(String ipAddress , int port){
+        this.ipAddress = ipAddress;
+        this.port = port;
+    }
 
     public void close() {
         socket.close();
     }
 
     public void transmit(String s) {
+        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + s));
         nonUiHandler.sendMessage(nonUiHandler.obtainMessage(nonUiHandler.WHAT_SEND_DATA, s));
     }
 
@@ -57,9 +62,9 @@ public class UDPSender {
             );
             socket.send(packet);
         } catch (UnknownHostException e) {
-            e.printStackTrace();
+            uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + e));
         } catch (IOException e) {
-            e.printStackTrace();
+            uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + e));
         }
     }
 

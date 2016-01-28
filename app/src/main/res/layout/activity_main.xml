@@ -42,4 +42,51 @@
         android:layout_alignRight="@+id/button2"
         android:layout_alignEnd="@+id/button2" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="IP"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:id="@+id/editText"
+        android:layout_above="@+id/button2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Port"
+        android:id="@+id/textView3"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_alignTop="@+id/button3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set"
+        android:id="@+id/button4"
+        android:layout_below="@+id/button3"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2" />
+
 </RelativeLayout>
