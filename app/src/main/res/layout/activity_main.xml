@@ -18,8 +18,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Command1"
-        android:id="@+id/button"
+        android:text="前進"
+        android:id="@+id/btn_go"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -27,20 +27,55 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Command2"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
+        android:text="停止"
+        android:id="@+id/btn_stop"
+        android:layout_below="@+id/btn_go"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Command3"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:text="後退"
+        android:id="@+id/btn_back"
+        android:layout_below="@+id/btn_stop"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加速"
+        android:id="@+id/btn_plus"
+        android:layout_below="@+id/btn_back"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="減速"
+        android:id="@+id/btn_des"
+        android:layout_below="@+id/btn_plus"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="左轉"
+        android:id="@+id/btn_left"
+        android:layout_below="@+id/btn_des"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="右轉"
+        android:id="@+id/btn_right"
+        android:layout_below="@+id/btn_left"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,7 +91,7 @@
         android:layout_height="wrap_content"
         android:ems="20"
         android:id="@+id/editText"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/btn_stop"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2" />
 
@@ -66,7 +101,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Port"
         android:id="@+id/textView3"
-        android:layout_alignBottom="@+id/button2"
+        android:layout_alignBottom="@+id/btn_stop"
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText" />
 
@@ -76,7 +111,7 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText2"
-        android:layout_alignTop="@+id/button3"
+        android:layout_alignTop="@+id/btn_back"
         android:layout_alignLeft="@+id/textView3"
         android:layout_alignStart="@+id/textView3" />
 
@@ -84,9 +119,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="set"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:id="@+id/btn_set"
+        android:layout_below="@+id/btn_back"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
 
 </RelativeLayout>
