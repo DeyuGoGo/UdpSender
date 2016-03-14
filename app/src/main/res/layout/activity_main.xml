@@ -76,15 +76,6 @@
         android:layout_below="@+id/btn_left"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test"
-        android:id="@+id/btn_test"
-        android:layout_below="@+id/btn_right"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
 
     <TextView
         android:layout_width="wrap_content"
