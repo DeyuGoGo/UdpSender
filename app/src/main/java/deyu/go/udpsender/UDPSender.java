@@ -45,11 +45,11 @@ public class UDPSender {
     }
 
     public void transmit(String s) {
-        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + s));
+        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT_TOSTRING, "" + s));
         nonUiHandler.sendMessage(nonUiHandler.obtainMessage(nonUiHandler.WHAT_SEND_DATA, s));
     }
     public void transmit(int[] data) {
-        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + data));
+        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_INT_ARRAY, data));
         nonUiHandler.sendMessage(nonUiHandler.obtainMessage(nonUiHandler.WHAT_SEND_INT_ARRAY, data));
     }
 
@@ -68,9 +68,9 @@ public class UDPSender {
             );
             socket.send(packet);
         } catch (UnknownHostException e) {
-            uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + e));
+            uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT_TOSTRING, "" + e));
         } catch (IOException e) {
-            uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + e));
+            uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT_TOSTRING, "" + e));
         }
     }
 
@@ -91,7 +91,7 @@ public class UDPSender {
                     try {
                         socket = createSocket();
                     } catch (IOException e) {
-                        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + e));
+                        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT_TOSTRING, "" + e));
                     }
                     break;
                 case WHAT_SEND_DATA:

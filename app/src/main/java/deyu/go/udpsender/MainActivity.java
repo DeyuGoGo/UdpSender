@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     private UDPSender UDPSender;
     private MainActivity self;
-    public static int WHAT_TOAST_OBJECT = 0x01;
+    public static final int WHAT_TOAST_OBJECT_TOSTRING = 0x01;
+    public static final int WHAT_TOAST_INT_ARRAY = 0x02;
 
     @OnClick(R.id.btn_go)
     public void car_go(){
@@ -69,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
         arrayCommand[8] += 1;
         send(arrayCommand);
     }
+    @OnClick(R.id.btn_test)
+    public void test(){
+        send(Command2);
+    }
     @OnClick(R.id.btn_set)
     public void setPortIP(){
         UDPSender.setIpAndPort(et_IP.getText().toString(),Integer.valueOf(et_Port.getText().toString()));
@@ -81,7 +86,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Toast.makeText(self, msg.obj.toString(), Toast.LENGTH_SHORT).show();
+            switch (msg.what){
+                case WHAT_TOAST_INT_ARRAY :
+                    Toast.makeText(self,Arrays.toString((int[])msg.obj), Toast.LENGTH_SHORT).show();
+                    break;
+                case WHAT_TOAST_OBJECT_TOSTRING:
+                    Toast.makeText(self,msg.obj.toString(), Toast.LENGTH_SHORT).show();
+                    break;
+            }
         }
     };
 
