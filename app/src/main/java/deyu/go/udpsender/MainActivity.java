@@ -24,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private final String Command1 = "Hi";
     private final String Command2 = "White shu";
 //    在一開始會初始成{0,0,0,0,0,0,0,0,0,0,0,0,0} in init();
-    private final int[] arrayCommand = new int[13];
+//    private final int[] arrayCommand = new int[13];
+//    換成char[]
+    private final char[] arrayCommand = new char[13];
 
     private UDPSender UDPSender;
     private MainActivity self;
@@ -32,21 +34,21 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_go)
     public void car_go(){
-        arrayCommand[0] = 1;
-        arrayCommand[1] = 0;
-        arrayCommand[2] = 0;
+        arrayCommand[0] = '1';
+        arrayCommand[1] = '0';
+        arrayCommand[2] = '0';
         send(arrayCommand);
     }
     @OnClick(R.id.btn_stop)
     public void stop(){
-        Arrays.fill(arrayCommand,0);
+        Arrays.fill(arrayCommand,'0');
         send(arrayCommand);
     }
     @OnClick(R.id.btn_back)
     public void car_back(){
-        arrayCommand[0] = 0;
-        arrayCommand[1] = 0;
-        arrayCommand[2] = 1;
+        arrayCommand[0] = '0';
+        arrayCommand[1] = '0';
+        arrayCommand[2] = '1';
         send(arrayCommand);
     }
     @OnClick(R.id.btn_plus)
@@ -104,17 +106,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         UDPSender.init();
-        Arrays.fill(arrayCommand,0);
+        Arrays.fill(arrayCommand, '0');
     }
 
+    private void send(char[] s){
+        transmitIntentOnBackgroundThread(s);
+    }
     private void send(String s){
         transmitIntentOnBackgroundThread(s);
     }
-
     private void send(int[] s){
         transmitIntentOnBackgroundThread(s);
     }
 
+    private void transmitIntentOnBackgroundThread(final char[] s) {
+        UDPSender.transmit(s);
+    }
     private void transmitIntentOnBackgroundThread(final String s) {
         UDPSender.transmit(s);
     }

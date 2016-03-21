@@ -13,6 +13,7 @@ import java.net.MulticastSocket;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
+import java.util.Arrays;
 
 
 public class UDPSender {
@@ -49,8 +50,13 @@ public class UDPSender {
         nonUiHandler.sendMessage(nonUiHandler.obtainMessage(nonUiHandler.WHAT_SEND_DATA, s));
     }
     public void transmit(int[] data) {
-        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, "" + data));
+        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT, Arrays.toString(data)));
         nonUiHandler.sendMessage(nonUiHandler.obtainMessage(nonUiHandler.WHAT_SEND_INT_ARRAY, data));
+    }
+    public void transmit(char[] data) {
+        String s = new String(data);
+        uiHandler.sendMessage(uiHandler.obtainMessage(MainActivity.WHAT_TOAST_OBJECT,s));
+        nonUiHandler.sendMessage(nonUiHandler.obtainMessage(nonUiHandler.WHAT_SEND_DATA, s));
     }
 
     protected MulticastSocket createSocket() throws IOException {
@@ -95,7 +101,7 @@ public class UDPSender {
                     }
                     break;
                 case WHAT_SEND_DATA:
-                    transmit(socket, ((String)msg.obj).getBytes());
+                    transmit(socket, ((String) msg.obj).getBytes());
                     break;
                 case WHAT_SEND_INT_ARRAY:
                     int[] data = (int[])msg.obj;
